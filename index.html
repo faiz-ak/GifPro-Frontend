@@ -104,7 +104,46 @@
             z-index: 2;
             border: 2px solid rgba(255, 255, 255, 0.1);
         }
+        .floating-note {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  max-width: 350px;
+  padding: 16px 18px;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  border: 1px solid rgba(34, 197, 94, 0.5);
+  color: #e2e8f0;
+  font-size: 13px;
+  line-height: 1.5;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.2);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  animation: slideIn 0.4s ease-out;
+}
 
+.floating-note strong {
+  color: #22c55e;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #94a3b8;
+  transition: 0.2s;
+}
+
+.close-btn:hover {
+  color: #ffffff;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
         @keyframes rotateText {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
@@ -231,7 +270,13 @@
             </div>
         </div>
     </div>
-
+<div id="serverNote" class="floating-note">
+  ⏳ <strong>Please wait up to 1 minute</strong> after clicking 
+  <strong>Build Animation</strong>.  
+  Our server may take a short time to wake up during the first run 
+  or after being idle for 15 minutes.
+  <span onclick="closeNote()" class="close-btn">✕</span>
+</div>
     <script>
         let selectedFiles = [];
         let cropResults = [];
@@ -417,6 +462,9 @@
             document.getElementById('previewBox').innerHTML = `<p class="text-slate-600 font-bold uppercase text-[10px] tracking-widest text-center px-10">Upload files to get started</p>`;
             document.getElementById('uploadText').innerText = modeLabels[currentMode];
         }
+        function closeNote() {
+  document.getElementById("serverNote").style.display = "none";
+}
     </script>
 
     <a href="https://giffyadm.netlify.app/giffy" class="floating-studio-wrapper">
