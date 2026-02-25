@@ -104,7 +104,7 @@
             z-index: 2;
             border: 2px solid rgba(255, 255, 255, 0.1);
         }
-        .floating-note {
+.floating-note {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -462,16 +462,9 @@ If nothing happens after 2 minutes, just refresh the page and try again.
             document.getElementById('previewBox').innerHTML = `<p class="text-slate-600 font-bold uppercase text-[10px] tracking-widest text-center px-10">Upload files to get started</p>`;
             document.getElementById('uploadText').innerText = modeLabels[currentMode];
         }
-        let selectedFiles = [];
-        let cropResults = [];
-@@ -417,6 +462,9 @@ <h3 class="font-black text-xl uppercase italic tracking-tight brand-gradient">Ma
-            document.getElementById('previewBox').innerHTML = `<p class="text-slate-600 font-bold uppercase text-[10px] tracking-widest text-center px-10">Upload files to get started</p>`;
-            document.getElementById('uploadText').innerText = modeLabels[currentMode];
-        }
-        function closeNote() {
+function closeNote() {
   document.getElementById("serverNote").style.display = "none";
 }
-    </script>
     </script>
  
     <a href="https://giffyadm.netlify.app/giffy" class="floating-studio-wrapper">
